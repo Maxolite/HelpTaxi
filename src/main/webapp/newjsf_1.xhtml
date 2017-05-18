@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <title>Prova Home</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" resizable="true" size="50">
+                <center>Titolo</center>    
+            </p:layoutUnit>
+            <p:layoutUnit position="south" resizable="true" size="80">
+                <p:panel style="width:100%">ciao</p:panel>
+            </p:layoutUnit>
+            <p:layoutUnit position="center" maxSize="100" resizable="true">
+                <h1>Ciao</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="250" resizable="true">
+                <h:form>
+                    <!--Menù laterale-->
+                <p:panelMenu style="width:100%">
+                <p:submenu label="Manuale">
+                    <p:menuitem value="Pagina Corrente" onclick="PF('pg1').show();"/>
+                    <p:menuitem value="Manuale completo" onclick="#{GrowlView.message}" icon="ui-icon-arrowrefresh-1-w" /> 
+                </p:submenu>
+                </p:panelMenu>
+                </h:form>
+            </p:layoutUnit>
+            <!--Richiedi finestra Help-->
+            <p:dialog header="Help?" widgetVar="pg1" closeOnEscape="True" width="500px" height="550px" position="right" resizable="false">
+                <p:outputLabel value="#{gestoreDoc.manualeCorrente}" escape="false"/>
+            </p:dialog>
+        </p:layout>
+        
+    </h:body>
+</html>
